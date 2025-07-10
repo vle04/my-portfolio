@@ -39,3 +39,8 @@ h6 {
   --color-text: #70706e;
   --color-border: #323231;
 }
+
+/* custom box shadow */
+.solid-shadow {
+  box-shadow: 8px 8px 0px var(--color-border);
+}

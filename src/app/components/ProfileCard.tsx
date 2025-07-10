@@ -1,15 +1,29 @@
 'use client';
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image"; 
+import { animate } from 'animejs';
 
 export default function ProfileCard() {
     // state for the profile image
     const [isHovered, setIsHovered] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (cardRef.current) {
+            animate(cardRef.current, {
+                opacity: [0, 1],
+                scale: [0.95, 1],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+        }
+    }, []);
 
     return (
-        <div className="flex flex-row items-center justify-between border-4 border-gray-400 rounded-xl max-w-4xl gap-6 p-6" 
+        <div className="flex flex-row items-center justify-between border-4 border-gray-400 rounded-xl max-w-4xl gap-6 p-6 solid-shadow" 
             style={{ borderColor: "var(--color-border"}}
+            ref={cardRef}
         >
             <div className="relative w-[250px] h-[250px] flex items-center justify-center flex-shrink-0"
                 onMouseEnter={() => setIsHovered(true)}
