@@ -8,9 +8,10 @@ export default function ProfileCard() {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className="flex flex-row items-center justify-between border border-gray-400 rounded-xl max-w-4xl gap-6 p-6">
-            <div 
-                className="relative w-[250px] h-[250px] flex items-center justify-center flex-shrink-0"
+        <div className="flex flex-row items-center justify-between border-4 border-gray-400 rounded-xl max-w-4xl gap-6 p-6" 
+            style={{ borderColor: "var(--color-border"}}
+        >
+            <div className="relative w-[250px] h-[250px] flex items-center justify-center flex-shrink-0"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
@@ -26,6 +27,13 @@ export default function ProfileCard() {
                 <h1 className="text-3xl">hi, i&apos;m vina</h1>
                 <p>i&apos;m a rising junior studying computer science at tufts university.</p>
                 <p>this portfolio is currently under construction, check back later!</p>
+                <Image
+                    src={"/stars.png"}
+                    alt="star icons"
+                    width={220}
+                    height={200}
+                    className="mt-4"
+                />
             </div>
         </div>
     );
