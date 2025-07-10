@@ -1,9 +1,9 @@
-// import Image from "next/image";
+import ProfileCard from "./components/ProfileCard";
 
 export default function Home() {
   return (
-    <div>
-      vina&apos;s portfolio, under construction haha
-    </div>
+    <main className="flex min-h-screen items-center justify-center bg-white">
+      <ProfileCard/>
+    </main>
   );
 }
