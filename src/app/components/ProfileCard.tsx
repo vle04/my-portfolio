@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function ProfileCard() {
     // state for the profile image
-    const [isHovered, setIsHovered] = useState(false);
+    // const [isHovered, setIsHovered] = useState(false);
 
     return (
         <div
