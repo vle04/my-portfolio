@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0; */
+  /* padding: 0; */
   box-sizing: border-box;
 }
 
@@ -30,7 +30,7 @@ h6 {
 
 /* colors */
 :root {
-  --color-backgrouond: #ffe6ae;
+  --color-background: #fdf6eb;
   --color-primary: #fdadbe;
   --color-secondary: #ffe6ae;
   --color-accent1: #a8d7fc;

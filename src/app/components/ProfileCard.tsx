@@ -1,26 +1,31 @@
 'use client';
 
-// import { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function ProfileCard() {
     // state for the profile image
-    // const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div
-            className="flex flex-row border border-gray-200 max-w-6xl max-h-1vh text-center p-8 bg-red-50"
-        >
-            <Image
-                src={"/vina-avatar.png"}
-                alt="self-drawn avatar"
-                width={220}
-                height={200}
-            />
-            <div>
-                <h1>hi, i&apos;m vina</h1>
-                <text>i&apos;m an aspiring software developer studing computer science at tufts university!</text>
-                {/* vina&apos;s portfolio, under construction haha */}
+        <div className="flex flex-row items-center justify-between border border-gray-400 rounded-xl max-w-4xl gap-6 p-6">
+            <div 
+                className="relative w-[250px] h-[250px] flex items-center justify-center flex-shrink-0"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+                <Image
+                    src={isHovered ? "/vina-avatar-blink.png": "/vina-avatar.png"}
+                    alt="hand-drawn avatar of vina"
+                    width={220}
+                    height={200}
+                    className="transition-transform duration-300 ease-in-out hover:scale-110 hover:rotate-3"
+                />
+            </div>
+            <div className="flex flex-col">
+                <h1 className="text-3xl">hi, i&apos;m vina</h1>
+                <p>i&apos;m a rising junior studying computer science at tufts university.</p>
+                <p>this portfolio is currently under construction, check back later!</p>
             </div>
         </div>
     );
