@@ -12,8 +12,8 @@ export default function ProfileCard() {
         >
             <img src={"/vina-avatar.png"} className="w-55"></img>
             <div>
-                <h1>hi, i'm vina</h1>
-                <text>i'm an aspiring software developer studing computer science at tufts university!</text>
+                <h1>hi, i&apos;'m vina</h1>
+                <text>i&apos;'m an aspiring software developer studing computer science at tufts university!</text>
                 {/* vina&apos;s portfolio, under construction haha */}
             </div>
         </div>
