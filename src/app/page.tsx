@@ -1,9 +1,9 @@
-import ProfileCard from "./components/ProfileCard";
+import ProfileCard from "@/components/ProfileCard";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center">
-      <ProfileCard/>
+      {/* <ProfileCard/> */}
     </main>
   );
 }
