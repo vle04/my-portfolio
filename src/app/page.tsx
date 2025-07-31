@@ -1,11 +1,11 @@
-// import ProfileCard from "@/components/ProfileCard";
-import Hero from "@/components/Hero";
+"use client";
+
+import Desktop from "@/components/WindowSystem/Desktop";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center">
-      {/* <ProfileCard/> */}
-      <Hero/>
+      <Desktop/>
     </main>
   );
 }
