@@ -1,8 +1,12 @@
+// manages window state
 "use client";
 
 // import { motion } from "framer-motion";
 import { useState } from "react";
-import Window from "../windows/WindowContainer";
+import Window from "./WindowContainer";
+import AboutWindow from "./WindowContents/AboutWindow";
+import WorkWindow from "./WindowContents/WorkWindow";
+import PlayWindow from "./WindowContents/PlayWindow";
 
 export default function DesktopWindow() {
   const [windows, setWindows] = useState({
@@ -23,9 +27,12 @@ export default function DesktopWindow() {
 
   return (
     <>
-      <div className="absolute top-4 left-4 space-x-2">
-        <button onClick={() => openWindow("about")}>about me</button>
+      <div className="absolute top-4 left-6 grid justify-items-start">
+        <button onClick={() => openWindow("about")}>
+            about me
+        </button>
         <button onClick={() => openWindow("work")}>work</button>
+        <button onClick={() => openWindow("play")}>play!</button>
       </div>
 
       {windows.about && (
@@ -33,14 +40,27 @@ export default function DesktopWindow() {
           onClose={() => closeWindow("about")}
           onFocus={() => setTopWindow("about")}
           isTop={topWindow === "about"}
-        />
+        >
+          <AboutWindow />
+        </Window>
       )}
       {windows.work && (
         <Window
           onClose={() => closeWindow("work")}
           onFocus={() => setTopWindow("work")}
           isTop={topWindow === "work"}
-        />
+        >
+          <WorkWindow />
+        </Window>
+      )}
+      {windows.play && (
+        <Window
+          onClose={() => closeWindow("play")}
+          onFocus={() => setTopWindow("play")}
+          isTop={topWindow === "play"}
+        >
+          <PlayWindow />
+        </Window>
       )}
     </>
   );
