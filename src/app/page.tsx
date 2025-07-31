@@ -4,7 +4,7 @@ import Desktop from "@/components/WindowSystem/Desktop";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
+    <main className="min-h-screen">
       <Desktop/>
     </main>
   );
