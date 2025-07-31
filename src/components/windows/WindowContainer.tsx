@@ -1,7 +1,14 @@
 import Draggable from "react-draggable";
 import { useRef } from "react";
 
-export default function AboutWindow({ onClose, onFocus, isTop }: any) {
+// define proper type for properties of window component
+type WindowProps = {
+    onClose: () => void; // no arg function
+    onFocus: () => void; // no arg function
+    isTop: boolean;
+};
+
+export default function AboutWindow({ onClose, onFocus, isTop }: WindowProps) {
   // create a red to the node we want to drag and pass it in as a prop
   const nodeRef = useRef(null);
 
