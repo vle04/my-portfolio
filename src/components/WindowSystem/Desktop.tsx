@@ -1,7 +1,6 @@
 // manages window state
 "use client";
 
-// import { motion } from "framer-motion";
 import { useState } from "react";
 import Window from "./WindowContainer";
 import AboutWindow from "./WindowContents/AboutWindow";
@@ -17,11 +16,21 @@ export default function DesktopWindow() {
     play: false,
   });
 
-  const [topWindow, setTopWindow] = useState("");
+  // track z indices per window
+  const [zIndices, setZIndices] = useState<Record<string, number>>({});
+  const [zCounter, setZCounter] = useState(1);
+
+  // when a window focuses, update that window's z index
+  const bringToFront = (name: string) => {
+    setZIndices((prev) => ({
+      ...prev,
+      [name]: zCounter + 1,
+    }));
+    setZCounter((prev) => prev + 1);
+  };
 
   const openWindow = (name: keyof typeof windows) => {
     setWindows((prev) => ({ ...prev, [name]: true }));
-    setTopWindow(name);
   };
 
   const closeWindow = (name: keyof typeof windows) =>
@@ -56,8 +65,8 @@ export default function DesktopWindow() {
       {windows.about && (
         <Window
           onClose={() => closeWindow("about")}
-          onFocus={() => setTopWindow("about")}
-          isTop={topWindow === "about"}
+          zIndex={zIndices["about"] ?? 1}
+          onFocus={() => bringToFront("about")}
         >
           <AboutWindow />
         </Window>
@@ -65,8 +74,8 @@ export default function DesktopWindow() {
       {windows.work && (
         <Window
           onClose={() => closeWindow("work")}
-          onFocus={() => setTopWindow("work")}
-          isTop={topWindow === "work"}
+          zIndex={zIndices["work"] ?? 1}
+          onFocus={() => bringToFront("work")}
         >
           <WorkWindow />
         </Window>
@@ -74,8 +83,8 @@ export default function DesktopWindow() {
       {windows.play && (
         <Window
           onClose={() => closeWindow("play")}
-          onFocus={() => setTopWindow("play")}
-          isTop={topWindow === "play"}
+          zIndex={zIndices["play"] ?? 1}
+          onFocus={() => bringToFront("play")}
         >
           <PlayWindow />
         </Window>

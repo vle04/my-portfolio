@@ -1,20 +1,19 @@
 import Draggable from "react-draggable";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils"; // from tailwind-variants or your custom utils
 
 // define proper type for properties of window component
 type WindowContainerProps = {
   onClose: () => void; // no arg function
   onFocus: () => void; // no arg function
-  isTop: boolean;
+  zIndex: number;
   children: React.ReactNode;
 };
 
 export default function AboutWindow({
   onClose,
   onFocus,
-  isTop,
+  zIndex,
   children,
 }: WindowContainerProps) {
   // create a red to the node we want to drag and pass it in as a prop
@@ -27,7 +26,8 @@ export default function AboutWindow({
       dragMomentum={false}
       dragElastic={0}
       onMouseDown={onFocus}
-      className="absolute top-1/4 left-1/4 border bg-white w-fit min-w-[300px] max-h-[80vh] overflow-auto"
+      style={{ zIndex }}
+      className={`absolute top-1/4 left-1/4 border bg-white w-fit min-w-[300px] max-h-[80vh] overflow-auto`}
     >
       {/* <div
         ref={nodeRef}
