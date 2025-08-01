@@ -16,9 +16,6 @@ export default function AboutWindow({
   zIndex,
   children,
 }: WindowContainerProps) {
-  // create a red to the node we want to drag and pass it in as a prop
-  const nodeRef = useRef(null);
-
   return (
     // <Draggable nodeRef={nodeRef} onStart={onFocus}>
     <motion.div
