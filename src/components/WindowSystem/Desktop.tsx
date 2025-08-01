@@ -1,7 +1,7 @@
 // manages window state
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Window from "./WindowContainer";
 import AboutWindow from "./WindowContents/AboutWindow";
 import WorkWindow from "./WindowContents/WorkWindow";
@@ -18,31 +18,32 @@ export default function DesktopWindow() {
 
   // track z indices per window
   const [zIndices, setZIndices] = useState<Record<string, number>>({});
-  // const [zCounter, setZCounter] = useState(1);
+  const zCounter = useRef(1);
 
   // when a window focuses, update that window's z index
   const bringToFront = (name: string) => {
     // look at current z indices and find current max
     setZIndices((prev) => {
-      const maxZ = Math.max(...Object.values(prev), 0);
       return {
         ...prev,
-        [name]: maxZ + 1,
+        [name]: zCounter.current++,
       };
     });
   };
 
-  const openWindow = (name: keyof typeof windows) => {
+  const openWindow = (name: string) => {
     setWindows((prev) => ({ ...prev, [name]: true }));
     bringToFront(name);
   };
 
-  const closeWindow = (name: keyof typeof windows) => {
+  const closeWindow = (name: string) => {
     setWindows((prev) => ({ ...prev, [name]: false }));
   };
 
+  const constraintsRef = useRef<HTMLDivElement>(null);
+
   return (
-    <>
+    <div className="relative w-screen h-screen" ref={constraintsRef}>
       <div className="absolute top-4 left-6 grid gap-4">
         <button
           onClick={() => openWindow("about")}
@@ -72,6 +73,7 @@ export default function DesktopWindow() {
           onClose={() => closeWindow("about")}
           zIndex={zIndices["about"] ?? 1}
           onFocus={() => bringToFront("about")}
+          constraint={constraintsRef}
         >
           <AboutWindow />
         </Window>
@@ -81,6 +83,7 @@ export default function DesktopWindow() {
           onClose={() => closeWindow("work")}
           zIndex={zIndices["work"] ?? 1}
           onFocus={() => bringToFront("work")}
+          constraint={constraintsRef}
         >
           <WorkWindow />
         </Window>
@@ -90,10 +93,11 @@ export default function DesktopWindow() {
           onClose={() => closeWindow("play")}
           zIndex={zIndices["play"] ?? 1}
           onFocus={() => bringToFront("play")}
+          constraint={constraintsRef}
         >
           <PlayWindow />
         </Window>
       )}
-    </>
+    </div>
   );
 }

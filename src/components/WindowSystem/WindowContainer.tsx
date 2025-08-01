@@ -6,22 +6,27 @@ type WindowContainerProps = {
   onFocus: () => void; // no arg function
   zIndex: number;
   children: React.ReactNode;
+  constraint: React.RefObject<HTMLDivElement | null>;
 };
 
-export default function AboutWindow({
+export default function WindowContainer({
   onClose,
   onFocus,
   zIndex,
   children,
+  constraint,
 }: WindowContainerProps) {
   return (
     <motion.div
       drag
       dragMomentum={false}
       dragElastic={0}
+      dragConstraints={constraint}
       onMouseDown={onFocus}
       style={{ zIndex }}
       className="absolute top-1/4 left-1/4 border bg-white w-fit min-w-[300px] max-h-[80vh] overflow-auto"
+      animate={{ scale: [0, 1] }}
+      // transition={{ type: "spring", bounce: 0.50 }}
     >
       <div className="flex justify-between border-b border-b-black bg-gray-200 w-full px-4 py-2">
         this is a test window
