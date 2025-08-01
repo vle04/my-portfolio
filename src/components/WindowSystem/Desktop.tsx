@@ -22,19 +22,24 @@ export default function DesktopWindow() {
 
   // when a window focuses, update that window's z index
   const bringToFront = (name: string) => {
-    setZIndices((prev) => ({
-      ...prev,
-      [name]: zCounter + 1,
-    }));
-    setZCounter((prev) => prev + 1);
+    // get the most updated zCounter
+    setZCounter((prevCounter) => {
+      setZIndices((prevZ) => ({
+        ...prevZ,
+        [name]: prevCounter + 1,
+      }));
+      return prevCounter + 1;
+    });
   };
 
   const openWindow = (name: keyof typeof windows) => {
     setWindows((prev) => ({ ...prev, [name]: true }));
+    bringToFront(name);
   };
 
-  const closeWindow = (name: keyof typeof windows) =>
+  const closeWindow = (name: keyof typeof windows) => {
     setWindows((prev) => ({ ...prev, [name]: false }));
+  };
 
   return (
     <>
