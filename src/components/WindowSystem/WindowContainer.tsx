@@ -1,5 +1,5 @@
 // import Draggable from "react-draggable";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { motion } from "framer-motion";
 
 // define proper type for properties of window component
