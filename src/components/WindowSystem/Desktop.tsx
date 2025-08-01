@@ -18,17 +18,17 @@ export default function DesktopWindow() {
 
   // track z indices per window
   const [zIndices, setZIndices] = useState<Record<string, number>>({});
-  const [zCounter, setZCounter] = useState(1);
+  // const [zCounter, setZCounter] = useState(1);
 
   // when a window focuses, update that window's z index
   const bringToFront = (name: string) => {
-    // get the most updated zCounter
-    setZCounter((prevCounter) => {
-      setZIndices((prevZ) => ({
-        ...prevZ,
-        [name]: prevCounter + 1,
-      }));
-      return prevCounter + 1;
+    // look at current z indices and find current max
+    setZIndices((prev) => {
+      const maxZ = Math.max(...Object.values(prev), 0);
+      return {
+        ...prev,
+        [name]: maxZ + 1,
+      };
     });
   };
 
