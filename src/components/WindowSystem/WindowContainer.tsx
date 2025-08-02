@@ -24,11 +24,14 @@ export default function WindowContainer({
       dragConstraints={constraint}
       onMouseDown={onFocus}
       style={{ zIndex }}
-      className="absolute top-1/4 left-1/4 border bg-white w-fit min-w-[300px] max-h-[80vh] overflow-auto"
+      className="absolute top-1/4 left-1/4 border-[6px] bg-white w-fit min-w-[300px] max-h-[80vh] overflow-auto rounded solid-shadow"
       animate={{ scale: [0, 1] }}
       // transition={{ type: "spring", bounce: 0.50 }}
     >
-      <div className="flex justify-between border-b border-b-black bg-gray-200 w-full px-4 py-2">
+      <div
+        className="flex justify-between border-b border-b-black border-b-[6px] bg-gray-200 w-full px-4 py-2"
+        style={{ borderBottomColor: "var(--color-border)" }}
+      >
         this is a test window
         <button onClick={onClose}>x</button>
       </div>

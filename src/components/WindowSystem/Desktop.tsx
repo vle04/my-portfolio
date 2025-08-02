@@ -6,7 +6,7 @@ import Window from "./WindowContainer";
 import AboutWindow from "./WindowContents/AboutWindow";
 import WorkWindow from "./WindowContents/WorkWindow";
 import PlayWindow from "./WindowContents/PlayWindow";
-import Icon from "@/public/file.svg";
+import Folder from "@/public/icons/folder.svg";
 import Image from "next/image";
 
 export default function DesktopWindow() {
@@ -47,24 +47,24 @@ export default function DesktopWindow() {
       <div className="absolute top-4 left-6 grid gap-4">
         <button
           onClick={() => openWindow("about")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-2"
+          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded"
         >
-          <Image src={Icon} alt="temporary icon" width={80} />
+          <Image src={Folder} alt="temporary icon" width={80} />
           about me
         </button>
         <button
           onClick={() => openWindow("work")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-2"
+          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded"
         >
-          <Image src={Icon} alt="temporary icon" width={80} />
+          <Image src={Folder} alt="temporary icon" width={80} />
           work
         </button>
         <button
           onClick={() => openWindow("play")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-2"
+          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded"
         >
-          <Image src={Icon} alt="temporary icon" width={80} />
-          play!
+          <Image src={Folder} alt="temporary icon" width={80} />
+          fun stuff
         </button>
       </div>
 
