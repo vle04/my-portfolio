@@ -33,9 +33,9 @@ export default function WindowContainer({
         style={{ borderBottomColor: "var(--color-border)" }}
       >
         this is a test window
-        <button onClick={onClose}>x</button>
+        <button onClick={onClose}>&#91; x &#93;</button>
       </div>
-      <div className="px-4 py-2">{children}</div>
+      <div className="p-8">{children}</div>
     </motion.div>
   );
 }
