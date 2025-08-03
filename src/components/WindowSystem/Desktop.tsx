@@ -8,6 +8,7 @@ import WorkWindow from "./WindowContents/WorkWindow";
 import PlayWindow from "./WindowContents/PlayWindow";
 import Folder from "@/public/icons/folder.svg";
 import Image from "next/image";
+import { AnimatePresence } from "motion/react";
 
 export default function DesktopWindow() {
   const [windows, setWindows] = useState({
@@ -68,36 +69,42 @@ export default function DesktopWindow() {
         </button>
       </div>
 
-      {windows.about && (
-        <Window
-          onClose={() => closeWindow("about")}
-          zIndex={zIndices["about"] ?? 1}
-          onFocus={() => bringToFront("about")}
-          constraint={constraintsRef}
-        >
-          <AboutWindow />
-        </Window>
-      )}
-      {windows.work && (
-        <Window
-          onClose={() => closeWindow("work")}
-          zIndex={zIndices["work"] ?? 1}
-          onFocus={() => bringToFront("work")}
-          constraint={constraintsRef}
-        >
-          <WorkWindow />
-        </Window>
-      )}
-      {windows.play && (
-        <Window
-          onClose={() => closeWindow("play")}
-          zIndex={zIndices["play"] ?? 1}
-          onFocus={() => bringToFront("play")}
-          constraint={constraintsRef}
-        >
-          <PlayWindow />
-        </Window>
-      )}
+      <AnimatePresence>
+        {windows.about && (
+          <Window
+            onClose={() => closeWindow("about")}
+            zIndex={zIndices["about"] ?? 1}
+            onFocus={() => bringToFront("about")}
+            constraint={constraintsRef}
+          >
+            <AboutWindow />
+          </Window>
+        )}
+        </AnimatePresence>
+        <AnimatePresence>
+        {windows.work && (
+          <Window
+            onClose={() => closeWindow("work")}
+            zIndex={zIndices["work"] ?? 1}
+            onFocus={() => bringToFront("work")}
+            constraint={constraintsRef}
+          >
+            <WorkWindow />
+          </Window>
+        )}
+        </AnimatePresence>
+        <AnimatePresence>
+        {windows.play && (
+          <Window
+            onClose={() => closeWindow("play")}
+            zIndex={zIndices["play"] ?? 1}
+            onFocus={() => bringToFront("play")}
+            constraint={constraintsRef}
+          >
+            <PlayWindow />
+          </Window>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

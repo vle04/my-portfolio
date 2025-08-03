@@ -26,6 +26,7 @@ export default function WindowContainer({
       style={{ zIndex }}
       className="absolute top-1/4 left-1/4 border-[6px] bg-white w-fit min-w-[300px] max-h-[80vh] overflow-auto rounded solid-shadow"
       animate={{ scale: [0, 1] }}
+      exit={{ scale:[1, 0] }}
       // transition={{ type: "spring", bounce: 0.50 }}
     >
       <div
@@ -33,7 +34,9 @@ export default function WindowContainer({
         style={{ borderBottomColor: "var(--color-border)" }}
       >
         this is a test window
-        <button onClick={onClose}>&#91; x &#93;</button>
+        <motion.button whileHover={{ scale: 1.2 }} onClick={onClose}>
+          &#91; x &#93;
+        </motion.button>
       </div>
       <div className="p-8">{children}</div>
     </motion.div>
