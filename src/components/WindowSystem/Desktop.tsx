@@ -9,6 +9,7 @@ import PlayWindow from "./WindowContents/PlayWindow";
 import Folder from "@/public/icons/folder.svg";
 import Image from "next/image";
 import { AnimatePresence } from "motion/react";
+import Header from "../Header";
 
 export default function DesktopWindow() {
   const [windows, setWindows] = useState({
@@ -44,25 +45,26 @@ export default function DesktopWindow() {
   const constraintsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative w-screen h-screen" ref={constraintsRef}>
-      <div className="absolute top-4 left-6 grid gap-4">
+    <section className="relative w-screen h-screen" ref={constraintsRef}>
+      <Header/>
+      <div className="flex flex-col m-6 gap-4">
         <button
           onClick={() => openWindow("about")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded"
+          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded w-fit"
         >
           <Image src={Folder} alt="temporary icon" width={80} />
           about me
         </button>
         <button
           onClick={() => openWindow("work")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded"
+          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded w-fit"
         >
           <Image src={Folder} alt="temporary icon" width={80} />
           work
         </button>
         <button
           onClick={() => openWindow("play")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded"
+          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded w-fit"
         >
           <Image src={Folder} alt="temporary icon" width={80} />
           fun stuff
@@ -80,8 +82,8 @@ export default function DesktopWindow() {
             <AboutWindow />
           </Window>
         )}
-        </AnimatePresence>
-        <AnimatePresence>
+      </AnimatePresence>
+      <AnimatePresence>
         {windows.work && (
           <Window
             onClose={() => closeWindow("work")}
@@ -92,8 +94,8 @@ export default function DesktopWindow() {
             <WorkWindow />
           </Window>
         )}
-        </AnimatePresence>
-        <AnimatePresence>
+      </AnimatePresence>
+      <AnimatePresence>
         {windows.play && (
           <Window
             onClose={() => closeWindow("play")}
@@ -105,6 +107,6 @@ export default function DesktopWindow() {
           </Window>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }

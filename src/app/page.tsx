@@ -1,6 +1,7 @@
 "use client";
 
 import Desktop from "@/components/WindowSystem/Desktop";
+// import Header from "@/components/Header";
 import { toast, Toaster } from "sonner";
 import { useEffect } from "react";
 
@@ -20,8 +21,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Desktop/>
+      {/* <Header/> */}
       <Toaster position="top-right" expand={true}/>
+      <Desktop/>
     </main>
   );
 }

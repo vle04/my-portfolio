@@ -30,7 +30,7 @@ export default function WindowContainer({
       // transition={{ type: "spring", bounce: 0.50 }}
     >
       <div
-        className="flex justify-between border-b border-b-black border-b-[6px] bg-gray-200 w-full px-4 py-2"
+        className="flex justify-between border-b border-b-[6px] bg-gray-200 w-full px-4 py-2"
         style={{ borderBottomColor: "var(--color-border)" }}
       >
         this is a test window
