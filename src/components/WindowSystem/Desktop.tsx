@@ -6,10 +6,11 @@ import Window from "./WindowContainer";
 import AboutWindow from "./WindowContents/AboutWindow";
 import WorkWindow from "./WindowContents/WorkWindow";
 import PlayWindow from "./WindowContents/PlayWindow";
-import Folder from "@/public/icons/folder.svg";
+import Folder from "@/public/icons/folder.png";
+import About from "@/public/icons/vina-explorer.png";
+import Mail from "@/public/icons/mail.png";
 import Image from "next/image";
 import { AnimatePresence } from "motion/react";
-import Header from "../Header";
 
 export default function DesktopWindow() {
   const [windows, setWindows] = useState({
@@ -46,28 +47,44 @@ export default function DesktopWindow() {
 
   return (
     <section className="relative w-screen h-screen" ref={constraintsRef}>
-      <Header/>
       <div className="flex flex-col m-6 gap-4">
         <button
           onClick={() => openWindow("about")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded w-fit"
+          className="flex flex-col items-center gap-2 p-3 w-fit"
         >
-          <Image src={Folder} alt="temporary icon" width={80} />
+          <Image
+            src={About}
+            alt="temporary icon"
+            // width={300}
+            className="w-25 h-25 transition-transform duration-200 ease-in-out transform hover:-translate-y-1 hover:-translate-x-1 hover:drop-shadow-[10px_10px_0_rgba(0,0,0,0.5)]"
+          />
           about me
         </button>
+
         <button
           onClick={() => openWindow("work")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded w-fit"
+          className="flex flex-col items-center gap-2 p-3 w-fit"
         >
-          <Image src={Folder} alt="temporary icon" width={80} />
+          <Image
+            src={Folder}
+            alt="temporary icon"
+            // width={300}
+            className="w-25 h-25 transition-transform duration-200 ease-in-out transform hover:-translate-y-1 hover:-translate-x-1 hover:drop-shadow-[10px_10px_0_rgba(0,0,0,0.5)]"
+          />
           work
         </button>
+
         <button
           onClick={() => openWindow("play")}
-          className="flex flex-col items-center gap-2 hover:bg-gray-200 p-3 rounded w-fit"
+          className="flex flex-col items-center gap-2 p-3 w-fit"
         >
-          <Image src={Folder} alt="temporary icon" width={80} />
-          fun stuff
+          <Image
+            src={Mail}
+            alt="temporary icon"
+            // width={300}
+            className="w-25 h-25 transition-transform duration-200 ease-in-out transform hover:-translate-y-1 hover:-translate-x-1 hover:drop-shadow-[10px_10px_0_rgba(0,0,0,0.5)]"
+          />
+          contact
         </button>
       </div>
 
