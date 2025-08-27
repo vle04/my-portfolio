@@ -12,7 +12,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -24,24 +24,32 @@ h4,
 h5,
 h6 {
   font-family: "Space Grotesk", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-heading);
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 32px;
 }
 
 /* colors */
 :root {
   --color-background: #ffffff;
-  --color-primary: #fdadbe;
+  /* --color-primary: #fdadbe;
   --color-secondary: #ffe6ae;
   --color-accent1: #a8d7fc;
-  --color-accent2: #b5b8fe;
-  --color-heading: #595959;
-  --color-text: #595959;
-  --color-border: #595959;
+  --color-accent2: #b5b8fe; */
+  --color-heading: #323231;
+  --color-text: #323231;
+  --color-border: #323231;
 }
 
 /* custom box shadow */
 .solid-shadow {
-  box-shadow: 10px 10px 0px var(--color-border);
+  box-shadow: 8px 8px 0px var(--color-border);
 }
