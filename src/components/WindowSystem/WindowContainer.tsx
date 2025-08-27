@@ -30,8 +30,8 @@ export default function WindowContainer({
       // transition={{ type: "spring", bounce: 0.50 }}
     >
       <div
-        className="flex justify-between border-b border-b-[3px] bg-gray-200 w-full px-4 py-2"
-        style={{ borderBottomColor: "var(--color-border)", }}
+        className="flex justify-between border-b border-b-[3px] bg-gray-200 w-full px-4 py-2 text-white"
+        style={{ borderBottomColor: "var(--color-border)", backgroundColor: "var(--color-border)"}}
       >
         this is a test window
         <motion.button whileHover={{ scale: 1.2 }} onClick={onClose}>
