@@ -46,7 +46,7 @@ export default function DesktopWindow() {
   const constraintsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="relative w-screen h-screen" ref={constraintsRef}>
+    <section className="relative w-screen h-screen overflow-hidden" ref={constraintsRef}>
       <div className="flex flex-col m-6 gap-4">
         <button
           onClick={() => openWindow("about")}
