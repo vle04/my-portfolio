@@ -1,5 +1,4 @@
 import { defineType, defineField } from "sanity";
-import blockContent from "./blockContent";
 
 export const project = defineType({
   name: "project", // how sanity refers to schema internally
