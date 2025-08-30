@@ -10,7 +10,7 @@ import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
 
 export default function WorkWindow() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProj, setSelectedProj] = useState(1); // index of the current proj
+  const [selectedProj, setSelectedProj] = useState(0); // index of the current proj
   const currProj = projects[selectedProj];
 
   // fetch projects
@@ -20,6 +20,11 @@ export default function WorkWindow() {
       // if (data.length > 0) setSelectedProj(data[0]); // select first proj by default
     });
   });
+
+  // checks if currProj is first or last is list
+  // function checkEdgePage() {
+  //   if (selectedProj === 0) return true;
+  // }
 
   return (
     <div className="flex flex-row w-full h-115">
@@ -76,9 +81,9 @@ export default function WorkWindow() {
               {/* back button */}
               <p
                 onClick={() => {
-                  setSelectedProj(selectedProj - 1);
+                  selectedProj > 0 && setSelectedProj(selectedProj - 1);
                 }}
-                className="hover:text-gray-300"
+                className={`hover:text-gray-300 ${selectedProj === 0 ? "text-gray-300" : ""}`}
               >
                 back
               </p>
@@ -89,9 +94,10 @@ export default function WorkWindow() {
               {/* next button */}
               <p
                 onClick={() => {
-                  setSelectedProj(selectedProj + 1);
+                  selectedProj < projects.length - 1 &&
+                    setSelectedProj(selectedProj + 1);
                 }}
-                className="hover:text-gray-300"
+                className={`hover:text-gray-300 ${selectedProj === projects.length - 1 ? "text-gray-300" : ""}`}
               >
                 next
               </p>
