@@ -6,11 +6,16 @@ export const portableTextComponents: PortableTextComponents = {
   types: {
     image: ({ value }) => (
       <Image
-        src={urlFor(value).width(800).url()}
+        src={urlFor(value)
+          .width(800)
+          .fit("max")
+          .auto("format")
+          .quality(90)
+          .url()}
         alt={value.alt || "sanity image"}
         width={800}
         height={800}
-        className="rounded"
+        className="rounded my-4"
       />
     ),
   },
@@ -19,7 +24,12 @@ export const portableTextComponents: PortableTextComponents = {
     number: ({ children }) => <ul className="list-decimal ml-8">{children}</ul>,
   },
   block: {
-    h2: ({ children }) => <h2>{children}</h2>,
+    h2: ({ children }) => <h4 className="">{children}</h4>,
     normal: ({ children }) => <p>{children}</p>,
+  },
+  marks: {
+    link: ({ children, value }) => (
+        <a href={value.href} className="underline hover:text-gray-300">{children}</a>
+    ),
   },
 };

@@ -16,11 +16,12 @@ export default defineType({
         { title: "H2", value: "h2" },
         { title: "Quote", value: "blockquote" },
       ],
-      lists: [{ title: "Bullet", value: "bullet" }],
+      lists: [{ title: "Bullet", value: "bullet" }, { title: "number", value: "number"}],
       marks: {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Underline", value: "underline"},
         ],
         annotations: [
           {

@@ -20,6 +20,8 @@ export default function WorkWindow() {
     });
   });
 
+  
+
   return (
     <div className="flex flex-row w-full h-115">
       {/* scroll through projects */}
@@ -67,9 +69,9 @@ export default function WorkWindow() {
             {/* <Image src={StockPhoto} alt="stock photo" className="w-full my-4" />
             <p>probably some more text down here</p> */}
 
-            <div className="prose">
+            {/* <div className="prose"> */}
               <PortableText value={selectedProj.body} components={portableTextComponents}/>
-            </div>
+            {/* </div> */}
 
             {/* pagination, make component for buttons*/}
             <div className="flex flex-row justify-between">
