@@ -21,11 +21,6 @@ export default function WorkWindow() {
     });
   });
 
-  // checks if currProj is first or last is list
-  // function checkEdgePage() {
-  //   if (selectedProj === 0) return true;
-  // }
-
   return (
     <div className="flex flex-row w-full h-115">
       {/* scroll through projects */}
@@ -80,9 +75,9 @@ export default function WorkWindow() {
             <div className="flex flex-row justify-between rounded bg-gray-200 p-4">
               {/* back button */}
               <p
-                onClick={() => {
-                  selectedProj > 0 && setSelectedProj(selectedProj - 1);
-                }}
+                onClick={() =>
+                  selectedProj > 0 && setSelectedProj(selectedProj - 1)
+                }
                 className={`hover:text-gray-300 ${selectedProj === 0 ? "text-gray-300" : ""}`}
               >
                 back
@@ -93,10 +88,10 @@ export default function WorkWindow() {
 
               {/* next button */}
               <p
-                onClick={() => {
+                onClick={() =>
                   selectedProj < projects.length - 1 &&
-                    setSelectedProj(selectedProj + 1);
-                }}
+                  setSelectedProj(selectedProj + 1)
+                }
                 className={`hover:text-gray-300 ${selectedProj === projects.length - 1 ? "text-gray-300" : ""}`}
               >
                 next
