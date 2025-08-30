@@ -1,5 +1,5 @@
 type ToolTabProps = {
-    text: string | "error";
+    text: string;
 }
 
 export default function ToolTab({ text }: ToolTabProps) {

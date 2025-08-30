@@ -1,13 +1,12 @@
 "use client";
 
 import ToolTab from "@/components/ToolTab";
-import StockPhoto from "@/public/images/stock-photo.png";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { projectsQuery } from "@/sanity/lib/queries";
 import { Project } from "@/types/project";
 import { PortableText } from "@portabletext/react";
+import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
 
 export default function WorkWindow() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -69,7 +68,7 @@ export default function WorkWindow() {
             <p>probably some more text down here</p> */}
 
             <div className="prose">
-              <PortableText value={selectedProj.body} />
+              <PortableText value={selectedProj.body} components={portableTextComponents}/>
             </div>
 
             {/* pagination, make component for buttons*/}
