@@ -33,7 +33,7 @@ export const project = defineType({
       name: "tools",
       title: "Tools",
       type: "array",
-      of: [{ type: "text" }],
+      of: [{ type: "string" }],
     }),
     defineField({
       name: "body",
