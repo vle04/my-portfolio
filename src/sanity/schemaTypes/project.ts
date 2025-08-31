@@ -20,8 +20,18 @@ export const project = defineType({
       },
     }),
     defineField({
-      name: "details",
-      title: "Additional Details",
+      name: "description",
+      title: "Short Description",
+      type: "text",
+    }),
+    defineField({
+      name: "role",
+      title: "Role",
+      type: "string",
+    }),
+    defineField({
+      name: "duration",
+      title: "Duration",
       type: "string",
     }),
     defineField({
@@ -39,6 +49,8 @@ export const project = defineType({
       name: "body",
       title: "Body",
       type: "blockContent",
+      description:
+        "context/problem, approach/responsibilities, key features/contributions, outcome/impact, lessons learned/reflection",
     }),
   ],
 });

@@ -78,7 +78,7 @@ export default function WorkWindow() {
                 onClick={() =>
                   selectedProj > 0 && setSelectedProj(selectedProj - 1)
                 }
-                className={`hover:text-gray-300 ${selectedProj === 0 ? "text-gray-300" : ""}`}
+                className={`${selectedProj === 0 ? "text-gray-200" : "cursor-pointer hover:text-gray-300"}`}
               >
                 back
               </p>
@@ -92,7 +92,7 @@ export default function WorkWindow() {
                   selectedProj < projects.length - 1 &&
                   setSelectedProj(selectedProj + 1)
                 }
-                className={`hover:text-gray-300 ${selectedProj === projects.length - 1 ? "text-gray-300" : ""}`}
+                className={`${selectedProj === projects.length - 1 ? "text-gray-200" : "cursor-pointer hover:text-gray-300"}`}
               >
                 next
               </p>
